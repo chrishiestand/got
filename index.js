@@ -53,7 +53,7 @@ function requestAsEventEmitter(opts) {
 				return;
 			}
 
-			setImmediate(() => {
+			process.nextTick(() => {
 				const response = typeof unzipResponse === 'function' && req.method !== 'HEAD' ? unzipResponse(res) : res;
 				response.url = redirectUrl || requestUrl;
 				response.requestUrl = requestUrl;
